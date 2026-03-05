@@ -1,0 +1,14 @@
+// by using Async
+const fs = require('fs');
+fs.writeFile('asyncFile.txt', 'Hello, this is asynchronous file writing', (err) => {
+    if (err) throw err;
+    console.log("File written successfully");
+
+    
+    fs.readFile('asyncFile.txt', 'utf8', (err, data) => {
+        if (err) throw err;
+        console.log("File Content:", data);
+    });
+});
+
+console.log("Asynchronous operation started");
